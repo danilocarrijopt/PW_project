@@ -11,7 +11,19 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      
+
+      - name: Verify Environment Variables
+        run: echo "Checking if the API key is set..."
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "${OPENAI_API_KEY}" ]; then
+            echo "OPENAI_API_KEY is not set!"
+            exit 1
+          else
+            echo "OPENAI_API_KEY is set."
+          fi
+
       - name: Run AI Code Reviewer
         uses: freeedcom/ai-codereviewer@main
         env:
