@@ -41,6 +41,11 @@ class Program
                 string j = "2";
             }
 
+            if (true)
+            {
+                string j = "2";
+            }
+
             string teste = "3";
 
             Console.WriteLine("Digite o primeiro número:");
