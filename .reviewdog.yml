@@ -1,0 +1,5 @@
+runner:
+  golangci-lint:
+    name: golangci-lint
+    level: error
+    cmd: golangci-lint run --out-format=reviewdog
