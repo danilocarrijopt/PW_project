@@ -25,4 +25,16 @@ public class Calculator
         }
         return a / b;
     }
+    
+    public double Exponentiate(double baseNum, double exponent)
+    {
+        return Math.Pow(baseNum, exponent);
+    }
+
+    public double SquareRoot(double number)
+    {
+        if (number < 0)
+            throw new ArgumentOutOfRangeException("Não é possível calcular a raiz quadrada de um número negativo.");
+        return Math.Sqrt(number);
+    }
 }
