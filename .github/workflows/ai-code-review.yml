@@ -13,7 +13,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Verify Environment Variables
-        run: echo "Checking if the API key is set..."
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
