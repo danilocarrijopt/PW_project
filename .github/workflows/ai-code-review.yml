@@ -1,0 +1,19 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ai-code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      
+      - name: Run AI Code Reviewer
+        uses: freeedcom/ai-codereviewer@main
+        env:
+          GITHUB_TOKEN: danlocarrijopt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 # The GITHUB_TOKEN is there by default so you just need to keep it like it is and not necessarily need to add it as secret as it will throw an error. [More Details](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)
+          OPENAI_API_KEY: sk-M1-XzqkV2eBDYN6TKXK9Hxi78XZGOZZ9KoERStK6LVT3BlbkFJ8QKp5jl6L57tIEy4h1p6RRka0IRLbOk4gQqTzRtIsA
