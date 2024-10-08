@@ -26,6 +26,8 @@ class Program
                 continue;
             }
 
+            string teste = "3";
+
             Console.WriteLine("Digite o primeiro número:");
             double numero1 = Convert.ToDouble(Console.ReadLine());
 
