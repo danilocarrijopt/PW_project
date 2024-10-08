@@ -3,7 +3,7 @@ name: Reviewdog
 on:
   pull_request:
     branches:
-      - main  # ou a branch que você deseja monitorar
+      - main
 
 jobs:
   reviewdog:
@@ -11,17 +11,13 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
         with:
-          go-version: '1.17'  # use a versão Go que você precisa
-
-      - name: Install golangci-lint
-        run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-
-      - name: Run golangci-lint with Reviewdog
+          dotnet-version: '6.0.x' # ou a versão que você está usando
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Run Reviewdog
         run: |
-          golangci-lint run --out-format=reviewdog | reviewdog -f=golangci-lint -name=golangci-lint -reporter=github-pr-review
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de acesso ao GitHub
+          dotnet build > build.log
+          reviewdog -f=msbuild -reporter=github-pr-review < build.log
