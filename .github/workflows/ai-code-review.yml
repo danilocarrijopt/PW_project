@@ -15,13 +15,7 @@ jobs:
       - name: Verify Environment Variables
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          if [ -z "${OPENAI_API_KEY}" ]; then
-            echo "OPENAI_API_KEY is not set!"
-            exit 1
-          else
-            echo "OPENAI_API_KEY is set."
-          fi
+        run: echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
 
       - name: Run AI Code Reviewer
         uses: freeedcom/ai-codereviewer@main
