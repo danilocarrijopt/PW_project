@@ -15,5 +15,5 @@ jobs:
       - name: Run AI Code Reviewer
         uses: freeedcom/ai-codereviewer@main
         env:
-          GITHUB_TOKEN: danlocarrijopt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 # The GITHUB_TOKEN is there by default so you just need to keep it like it is and not necessarily need to add it as secret as it will throw an error. [More Details](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)
-          OPENAI_API_KEY: sk-M1-XzqkV2eBDYN6TKXK9Hxi78XZGOZZ9KoERStK6LVT3BlbkFJ8QKp5jl6L57tIEy4h1p6RRka0IRLbOk4gQqTzRtIsA
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
