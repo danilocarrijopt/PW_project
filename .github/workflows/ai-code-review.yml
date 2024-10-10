@@ -18,7 +18,7 @@ jobs:
           curl -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" https://api.openai.com/v1/models
 
       - name: Run AI Code Reviewer
-        uses: freeedcom/ai-codereviewer@main
+        uses: freeedcom/ai-codereviewer@v2.7.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
