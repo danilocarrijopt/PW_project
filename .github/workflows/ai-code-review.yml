@@ -17,4 +17,4 @@ jobs:
         uses: danilocarrijopt/ai-codereviewer@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: "Bearer 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"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
