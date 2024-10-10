@@ -2,15 +2,16 @@ name: AI Code Review
 
 on:
   pull_request:
-    branches:
-      - main
-
+    types:
+      - opened
+      - synchronize
+permissions: write-all
 jobs:
   ai-code-review:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Verify Environment Variables
         env:
